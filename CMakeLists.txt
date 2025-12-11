@@ -139,6 +139,7 @@ set(CASCADE_SRC_FILES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/detail/logging_impl.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/logging.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/src/detail/atomic_utils.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/wrap_sim.cpp"
 )
 
 # Setup of the cascade shared library.
