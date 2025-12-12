@@ -17,6 +17,8 @@ CASCADE_DLL_PUBLIC void* initSimArgs(double state[], int state_length, float ct)
 
 CASCADE_DLL_PUBLIC enum outcome propogate_until(void* simPointer, float t);
 
+CASCADE_DLL_PUBLIC void remove_particles(void* simPointer, size_t indices[], int indices_length);
+
 CASCADE_DLL_PUBLIC unsigned long get_nparts(void* simPointer);
 
 CASCADE_DLL_PUBLIC double getSimTime(void* simPointer);
