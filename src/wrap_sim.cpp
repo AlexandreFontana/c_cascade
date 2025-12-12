@@ -35,12 +35,17 @@ extern "C" {
         return newSim;
     }
 
-    unsigned long getNParts(void* simPointer) {
+    outcome propogate_until(void* simPointer, float t) {
+        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
+        return temp->propagate_until(t);
+    }
+
+    unsigned long get_nparts(void* simPointer) {
         cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
         return temp->get_nparts();
     } 
 
-    int getSimTime(void* simPointer) {
+    double getSimTime(void* simPointer) {
         cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
         return temp->get_time();
     }

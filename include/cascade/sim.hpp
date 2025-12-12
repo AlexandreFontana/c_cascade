@@ -35,6 +35,8 @@
 #include <cascade/detail/fmt_compat.hpp>
 #include <cascade/detail/visibility.hpp>
 
+enum class outcome { success, time_limit, collision, reentry, exit, err_nf_state };
+
 namespace cascade
 {
 
@@ -78,8 +80,6 @@ CASCADE_CONCEPT_DECL di_range
     = std::ranges::input_range<T> && std::convertible_to<std::ranges::range_reference_t<T>, double>;
 
 #undef CASCADE_CONCEPT_DECL
-
-enum class outcome { success, time_limit, collision, reentry, exit, err_nf_state };
 
 class CASCADE_DLL_PUBLIC sim
 {
