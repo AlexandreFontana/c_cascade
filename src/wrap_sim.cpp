@@ -49,6 +49,31 @@ extern "C" {
         temp->remove_particles(indicesVec);
     }
 
+    void reset_conjunctions(void* simPointer) {
+        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
+        temp->reset_conjunctions();
+    }
+
+    void set_new_state_pars(void* simPointer, double newState[], int newState_length, 
+                            double new_pars, int new_pars_length){
+        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
+
+        std::vector<double> stateV(newState, newState + newState_length);
+        std::vector<double> parsV(new_pars, new_pars + new_pars_length);
+
+        temp->set_new_state_pars(stateV, parsV);
+    }
+
+    void step(void* simPointer) {
+        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
+        temp->step();
+    }
+
+    int get_size_coll_whitelist(void* simPointer) {
+        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
+        return temp->coll_whitelist.size();
+    }
+
     unsigned long get_nparts(void* simPointer) {
         cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
         return temp->get_nparts();
@@ -59,10 +84,7 @@ extern "C" {
         return temp->get_time();
     }
 
-    void simStep(void* simPointer) {
-        cascade::sim* temp = static_cast<cascade::sim*>(simPointer);
-        temp->step();
-    }
+    
     
     
     void printSmile(){
